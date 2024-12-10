@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>TribalCrafts</title>
+<style>
+    .card img {
+        border-radius: 8px; /* Makes the images rectangular with slightly rounded corners */
+        object-fit: cover;
+    }
+</style>
+</head>
+<body>
+<section>
+<!-- Start Slider -->
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/show1.jpg" class="d-block w-100" alt="Tribal Painting" height="350px">
+    </div>
+    <div class="carousel-item">
+      <img src="img/show2.jpg" class="d-block w-100" alt="Pottery" height="350px">
+    </div>
+    <div class="carousel-item">
+      <img src="img/show3.jpg" class="d-block w-100" alt="Terracotta Craft" height="350px">
+    </div>
+    <div class="carousel-item">
+      <img src="img/show4.jpg" class="d-block w-100" alt="Handcrafted Dolls" height="350px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- End Slider -->
+
+<!-- Start Category Module -->
+<div class="container">
+	<div class="row">
+		<p class="text-center fs-4">Category</p>
+		<div class="col-md-2">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img src="img/category_img/textiles" width="100%" height="140px">
+					<p>Textiles</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img src="img/category_img/Pottery" width="100%" height="140px">
+					<p>Pottery</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img src="img/category_img/wooden_work" width="100%" height="140px">
+					<p>Wood Works</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img src="img/category_img/metal.png" width="100%" height="140px">
+					<p>Metal Work</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img src="img/category_img/basketry" width="100%" height="140px">
+					<p>Basketry</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img src="img/category_img/StoneCarvings" width="100%" height="140px">
+					<p>Stone Carvings</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Category Module -->
+
+<!-- Start Latest Product Module -->
+<div class="container-fluid bg-light p-3">
+	<div class="row">
+		<p class="text-center fs-4">Latest Products</p>
+		<div class="col-md-3">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img alt="Tribal Art" src="img/product_img/Tribal_Art.png" class="" width="100%" height="140px">
+					<p class="text-center">Tribal Art</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img alt="Traditional Mask" src="img/product_img/Traditional_mask.png" class="" width="100%" height="140px">
+					<p class="text-center">Traditional Mask</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img alt="African Vase" src="img/product_img/pottery_latest.png" class="" width="100%" height="140px">
+					<p class="text-center">African Vase</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+				<div class="card-body text-center">
+					<img alt="Dokra Metal Craft" src="img/product_img/metal_latest.png" class="" width="100%" height="140px">
+					<p class="text-center">Dokra Metal Craft</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Latest Product Module -->
+
+</section>
+</body>
+</html>

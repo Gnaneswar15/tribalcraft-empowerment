@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+		<div class="container-fluid mt-4 p-3">
+			<div class="row">
+				<p class="text-center fs-3 mt-2">Users</p>
+				<hr>
+				<a href="/admin/" class="text-decoration-none"><i
+					class="fa-solid fa-arrow-left"></i> Back</a>
+				<th:block th:if="${session.succMsg}">
+					<p class="text-success fw-bold">[[${session.succMsg}]]</p>
+					<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<th:block th:if="${session.errorMsg}">
+					<p class="text-danger fw-bold">[[${session.errorMsg}]]</p>
+					<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+
+				<th:block th:if="${session.errorMsg}">
+					<p class="text-danger fw-bold text-center">[[${session.errorMsg}]]</p>
+					<th:block th:text="${@commnServiceImpl.removeSessionMessage()}"></th:block>
+				</th:block>
+				<div class="col-md-4 p-3">
+
+					<form action="/admin/products" method="get">
+						<div class="row">
+							<div class="col">
+								<input type="text" class="form-control " name="ch">
+							</div>
+							<div class="col">
+								<button class="btn btn-primary col">Search</button>
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+
+				<!-- <div class="card card-sh">-->
+				<div class="p-3">
+					<table class="table table-bordered">
+						<thead class="table-light ">
+							<tr>
+								<th scope="col">Sl No</th>
+								<th scope="col">Profile</th>
+								<th scope="col">Name</th>
+								<th scope="col">Email</th>
+								<th scope="col">Mobile No</th>
+								<th scope="col">Address</th>
+								<th scope="col">Status</th>
+								<th scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="u,c:${users}">
+								<th scope="row">[[${c.count}]]</th>
+								<td><img th:src="@{'/img/profile_img/'+${u.profileImage}}"
+									width="70px" height="70px"></td>
+								<td>[[${u.name}]]</td>
+								<td>[[${u.email}]]</td>
+								<td>[[${u.mobileNumber}]]</td>
+								<td>[[${u.address+','+u.city+','+u.state+','+u.pincode}]]</td>
+								<td>[[${u.isEnable}]]</td>
+								<td><a th:href="@{'/admin/updateSts?status=true&id='+${u.id}}"
+									class="btn btn-sm btn-primary">Active</a> <a
+									th:href="@{'/admin/updateSts?status=false&id='+${u.id}}"
+									class="btn btn-sm btn-danger">
+										In active</a></td>
+							</tr>
+
+						</tbody>
+					</table>
+
+					
+				</div>
+			</div>
+		</div>
+		<!-- 	</div> -->
+	</section>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<style>
+    body {
+        background-color: #f9f9f9;
+    }
+    .card {
+        border: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: linear-gradient(145deg, #e6e6e6, #ffffff);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .card i {
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+    .card h4 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .text-primary {
+        color: #4e73df !important;
+    }
+    .text-warning {
+        color: #f6c23e !important;
+    }
+    .text-success {
+        color: #1cc88a !important;
+    }
+</style>
+</head>
+<body>
+<section>
+    <div class="container py-5">
+        <p class="text-center fs-3 mb-4">Admin Dashboard</p>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="/admin/loadAddProduct" class="text-decoration-none">
+                    <div class="card text-center p-4">
+                        <i class="fa-solid fa-box-open fa-4x text-primary"></i>
+                        <h4 class="mt-2">Add Product</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/admin/category" class="text-decoration-none">
+                    <div class="card text-center p-4">
+                        <i class="fa-solid fa-tags fa-4x text-warning"></i>
+                        <h4 class="mt-2">Add Category</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/admin/products" class="text-decoration-none">
+                    <div class="card text-center p-4">
+                        <i class="fa-solid fa-list-ul fa-4x text-success"></i>
+                        <h4 class="mt-2">View Product</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/admin/orders" class="text-decoration-none">
+                    <div class="card text-center p-4">
+                        <i class="fa-solid fa-shopping-cart fa-4x text-warning"></i>
+                        <h4 class="mt-2">Orders</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/admin/users" class="text-decoration-none">
+                    <div class="card text-center p-4">
+                        <i class="fa-solid fa-user fa-4x text-primary"></i>
+                        <h4 class="mt-2">Users</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="text-decoration-none">
+                    <div class="card text-center p-4">
+                        <i class="fa-solid fa-user-plus fa-4x text-primary"></i>
+                        <h4 class="mt-2">Add Admin</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

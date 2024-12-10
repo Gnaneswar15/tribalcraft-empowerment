@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Form</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    input:invalid, select:invalid {
+        border: 2px solid red;
+    }
+    input:invalid:focus, select:invalid:focus {
+        outline: none;
+        box-shadow: 0 0 5px red;
+    }
+    .invalid-feedback {
+        color: red;
+        display: none;
+    }
+    input:invalid ~ .invalid-feedback,
+    select:invalid ~ .invalid-feedback {
+        display: block;
+    }
+</style>
+<script>
+    function handlePaymentTypeChange() {
+        const paymentType = document.getElementById('paymentType').value;
+        const orderForm = document.getElementById('orders');
+        
+        if (paymentType === 'ONLINE') {
+            // Redirect to the online payment page
+            window.location.href = '/online-payment';  // Make sure this matches your route
+        } else {
+            // Stay on the same page for Cash On Delivery
+            orderForm.submit();  // Submit the form as usual
+        }
+    }
+</script>
+</head>
+<body>
+<section>
+    <div class="container mt-5 p-5">
+        <form action="/user/save-order" method="post" id="orders" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3 row">
+                        <p class="text-center fs-4">Billing Address</p>
+                        <hr>
+                        <!-- First Name -->
+                        <div class="col p-1">
+                            <label>First Name</label>
+                            <input type="text" name="firstName" pattern="[A-Za-z\s]+" required class="form-control mt-1">
+                            <div class="invalid-feedback">First Name can only contain letters and spaces.</div>
+                        </div>
+                        <!-- Last Name -->
+                        <div class="col p-1">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" pattern="[A-Za-z\s]+" required class="form-control mt-1">
+                            <div class="invalid-feedback">Last Name can only contain letters and spaces.</div>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-3 row">
+                        <div class="col p-1">
+                            <label>Email</label>
+                            <input type="email" name="email" pattern=".+@.+\..+" required class="form-control">
+                            <div class="invalid-feedback">Please enter a valid email with an '@' symbol.</div>
+                        </div>
+                        <!-- Mobile Number -->
+                        <div class="col p-1">
+                            <label>Mobile Number</label>
+                            <input type="text" name="mobileNo" pattern="\d{10}" required class="form-control ms-2">
+                            <div class="invalid-feedback">Mobile Number must be exactly 10 digits.</div>
+                        </div>
+                    </div>
+                    <!-- Address -->
+                    <div class="mb-3 row">
+                        <div class="col p-1">
+                            <label>Address</label>
+                            <input type="text" name="address" pattern="[A-Za-z0-9\s,.-]+" required class="form-control">
+                            <div class="invalid-feedback">Address can contain letters, numbers, spaces, commas, and periods.</div>
+                        </div>
+                        <!-- City -->
+                        <div class="col p-1">
+                            <label>City</label>
+                            <input type="text" name="city" pattern="[A-Za-z\s]+" required class="form-control ms-2">
+                            <div class="invalid-feedback">City can only contain letters and spaces.</div>
+                        </div>
+                    </div>
+                    <!-- State and Pincode -->
+                    <div class="mb-3 row">
+                        <div class="col p-1">
+                            <label>State</label>
+                            <input type="text" name="state" pattern="[A-Za-z\s]+" required class="form-control">
+                            <div class="invalid-feedback">State can only contain letters and spaces.</div>
+                        </div>
+                        <div class="col p-1">
+                            <label>Pincode</label>
+                            <input type="text" name="pincode" pattern="\d{6}" required class="form-control ms-2">
+                            <div class="invalid-feedback">Pincode must be exactly 6 digits.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-center fs-4">Payment Type</p>
+                    <hr>
+                    <!-- Price Details -->
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <td>Total price</td>
+                                        <td>:</td>
+                                        <td>&#8377; [[${orderPrice}]]</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delivery Fee</td>
+                                        <td>:</td>
+                                        <td>&#8377; 250</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tax</td>
+                                        <td>:</td>
+                                        <td>&#8377; 100</td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <td>Total Price</td>
+                                        <td>:</td>
+                                        <td>&#8377; [[${totalOrderPrice}]]</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Payment Type Selection -->
+                    <div class="card shadow p-3 mb-5 mt-2 bg-body-tertiary rounded">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">Select Payment Type</label>
+                                <select id="paymentType" name="paymentType" class="form-control" onchange="handlePaymentTypeChange()" required>
+                                    <option value="">--select--</option>
+                                    <option value="COD">Cash On Delivery</option>
+                                    <option value="ONLINE">Online Payment</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a payment type.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>
